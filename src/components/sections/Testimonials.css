@@ -1,0 +1,185 @@
+.testi {
+  position: relative;
+  background: linear-gradient(180deg, var(--bg-base) 0%, var(--bg-deep) 100%);
+  overflow: hidden;
+}
+
+.testi__constellation {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: var(--z-base);
+}
+
+.testi__constellation span {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(76, 201, 240, 0.5);
+  filter: blur(0.5px);
+  animation: dotPulse 6s ease-in-out infinite;
+}
+
+.testi__inner {
+  position: relative;
+  z-index: var(--z-content);
+}
+
+.testi__stage {
+  position: relative;
+  margin-inline: auto;
+  max-width: 820px;
+  padding: 16px;
+  outline: none;
+}
+
+.testi__stage:focus-visible .testi__card {
+  box-shadow: 0 0 0 2px var(--accent-cyan), 0 24px 60px rgba(5,11,26,0.6);
+}
+
+.testi__slot {
+  perspective: 1200px;
+}
+
+.testi__card {
+  position: relative;
+  padding: clamp(28px, 4vw, 48px);
+  border-radius: var(--radius-5);
+  background: linear-gradient(180deg, rgba(11,18,48,0.7), rgba(7,13,28,0.85));
+  border: 1px solid var(--border-subtle);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  box-shadow: 0 24px 60px rgba(5,11,26,0.6), 0 0 60px rgba(76,201,240,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.testi__card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(from 200deg, rgba(76,201,240,0) 0deg, rgba(76,201,240,0.45) 90deg, rgba(124,58,237,0.45) 200deg, rgba(76,201,240,0) 330deg);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+.testi__institution {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-cyan);
+}
+
+.testi__quote-icon {
+  color: rgba(76,201,240,0.45);
+}
+
+.testi__quote {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  letter-spacing: -0.01em;
+  line-height: 1.45;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.testi__person {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.testi__avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #fff;
+  background: var(--gradient-primary);
+  box-shadow: 0 0 0 2px rgba(76,201,240,0.35), 0 0 24px rgba(76,201,240,0.3);
+}
+
+.testi__person-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.testi__person-meta strong {
+  font-family: var(--font-display);
+  font-size: var(--text-md);
+  color: var(--text-primary);
+}
+
+.testi__person-meta em {
+  font-style: normal;
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+.testi__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--surface-2);
+  border: 1px solid var(--border-default);
+  color: var(--text-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  backdrop-filter: blur(8px);
+  transition: background var(--duration-default), border-color var(--duration-default);
+}
+
+.testi__nav:hover {
+  background: var(--surface-3);
+  border-color: var(--border-accent);
+}
+
+.testi__nav--left { left: -10px; }
+.testi__nav--right { right: -10px; }
+
+.testi__dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.testi__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--surface-3);
+  transition: all var(--duration-default) var(--ease-default);
+}
+
+.testi__dot.is-active {
+  background: var(--accent-cyan);
+  box-shadow: 0 0 12px rgba(76,201,240,0.6);
+  width: 30px;
+  border-radius: 5px;
+}
+
+@media (max-width: 720px) {
+  .testi__nav { display: none; }
+  .testi__quote { font-size: var(--text-md); }
+}

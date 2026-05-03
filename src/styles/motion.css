@@ -1,0 +1,97 @@
+/* ============================================================================
+   Motion: Keyframes + utilities
+   All decorative animations are gated by .in-view / IntersectionObserver
+   and disabled under prefers-reduced-motion via base.css.
+   ========================================================================= */
+
+@keyframes pulseRing {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.18);
+    opacity: 0.8;
+  }
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-2%, -1%, 0) scale(1.04);
+  }
+}
+
+@keyframes drawPath {
+  from { stroke-dashoffset: var(--path-len, 1000); }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes dashFlow {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: -120; }
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes shimmerSweep {
+  0% { transform: translateX(-120%); }
+  100% { transform: translateX(220%); }
+}
+
+@keyframes nodePulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(76, 201, 240, 0.45); }
+  50% { box-shadow: 0 0 0 12px rgba(76, 201, 240, 0); }
+}
+
+@keyframes dotPulse {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.4); }
+}
+
+@keyframes drift {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -6px, 0); }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes statusPulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; box-shadow: 0 0 14px rgba(89, 208, 180, 0.7); }
+}
+
+/* Decorative animations only run when their carrier element has `.in-view` */
+.in-view .anim-pulse-ring { animation: pulseRing 3.4s var(--ease-default) infinite; }
+.in-view .anim-spin-slow { animation: spinSlow 20s linear infinite; }
+.in-view .anim-dash-flow { animation: dashFlow 4s linear infinite; }
+.in-view .anim-drift { animation: drift 5s ease-in-out infinite; }
+.in-view .anim-status-pulse { animation: statusPulse 2.4s ease-in-out infinite; }
+
+/* Pause when offscreen */
+:not(.in-view) .anim-pulse-ring,
+:not(.in-view) .anim-spin-slow,
+:not(.in-view) .anim-dash-flow,
+:not(.in-view) .anim-drift,
+:not(.in-view) .anim-status-pulse {
+  animation-play-state: paused;
+}

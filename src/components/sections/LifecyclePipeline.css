@@ -1,0 +1,189 @@
+.lifecycle {
+  background: linear-gradient(180deg, var(--bg-deep), var(--bg-base));
+}
+
+.lifecycle__pipeline {
+  position: relative;
+  margin-top: clamp(40px, 6vw, 64px);
+}
+
+.lifecycle__line {
+  position: absolute;
+  top: 36px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 4px;
+  pointer-events: none;
+}
+
+.lifecycle__line-fill {
+  transform-origin: left center;
+  transition: transform 1.4s var(--ease-default);
+}
+
+.lifecycle__steps {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.lifecycle__step {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.lifecycle__node {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-default);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  letter-spacing: 0.08em;
+  box-shadow: 0 8px 24px rgba(5,11,26,0.5);
+  isolation: isolate;
+}
+
+.lifecycle__node-pulse {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1px solid rgba(76, 201, 240, 0.45);
+  opacity: 0;
+}
+
+.in-view .lifecycle__node-pulse {
+  animation: pulseRing 3.4s var(--ease-default) infinite;
+}
+
+.lifecycle__node-num {
+  position: relative;
+  z-index: 1;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 700;
+  font-size: var(--text-md);
+}
+
+.lifecycle__step strong {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+
+.lifecycle__step p {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+@media (max-width: 1023px) {
+  .lifecycle__line { display: none; }
+
+  .lifecycle__steps {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    border-left: none;
+    padding-left: 0;
+    position: relative;
+  }
+
+  /* Single vertical guide line behind the nodes */
+  .lifecycle__steps::before {
+    content: '';
+    position: absolute;
+    left: 27px;
+    top: 28px;
+    bottom: 28px;
+    width: 1px;
+    background: linear-gradient(180deg,
+      transparent 0%,
+      rgba(76, 201, 240, 0.35) 8%,
+      rgba(124, 58, 237, 0.35) 92%,
+      transparent 100%);
+    pointer-events: none;
+  }
+
+  .lifecycle__step {
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 16px;
+    border-radius: var(--radius-3);
+    background: var(--surface-1);
+    border: 1px solid var(--border-subtle);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .lifecycle__step strong {
+    font-size: var(--text-md);
+    margin-right: 4px;
+  }
+
+  .lifecycle__step p {
+    flex: 1;
+    font-size: var(--text-sm);
+    line-height: 1.45;
+    color: var(--text-secondary);
+  }
+
+  .lifecycle__node {
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+  }
+
+  /* Suppress the pulsing ring on mobile — it visually overlaps the small node */
+  .lifecycle__node-pulse { display: none; }
+
+  .lifecycle__node-num { font-size: var(--text-sm); }
+}
+
+@media (max-width: 560px) {
+  .lifecycle__step {
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    grid-template-rows: auto auto;
+    column-gap: 16px;
+    row-gap: 4px;
+    align-items: center;
+    padding: 14px;
+  }
+  .lifecycle__node {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    align-self: center;
+  }
+  .lifecycle__step strong {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: end;
+    margin-right: 0;
+  }
+  .lifecycle__step p {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: start;
+    font-size: var(--text-sm);
+    line-height: 1.4;
+  }
+}
+
+@media (max-width: 380px) {
+  .lifecycle__steps::before { display: none; }
+}

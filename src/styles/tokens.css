@@ -1,0 +1,110 @@
+/* ============================================================================
+   Novelution Design Tokens
+   ========================================================================= */
+
+:root {
+  /* Backgrounds */
+  --bg-deep: #050b1a;
+  --bg-base: #070d1c;
+  --bg-raised: #0b1230;
+  --bg-elevated: #101827;
+
+  /* Surfaces */
+  --surface-1: rgba(255, 255, 255, 0.03);
+  --surface-2: rgba(255, 255, 255, 0.06);
+  --surface-3: rgba(255, 255, 255, 0.10);
+
+  /* Borders */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-default: rgba(255, 255, 255, 0.14);
+  --border-accent: rgba(76, 201, 240, 0.32);
+
+  /* Brand accents */
+  --accent-cyan: #4cc9f0;
+  --accent-blue: #4361ee;
+  --accent-purple: #7c3aed;
+  --accent-teal: #15a68b;
+  --accent-mint: #59d0b4;
+  --accent-warning: #f05a2a;
+  --accent-gold: #f7c75e;
+
+  /* Text */
+  --text-primary: rgba(255, 255, 255, 0.95);
+  --text-secondary: rgba(255, 255, 255, 0.72);
+  --text-muted: rgba(255, 255, 255, 0.55);
+  --text-faint: rgba(255, 255, 255, 0.36);
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #4cc9f0 0%, #4361ee 52%, #7c3aed 100%);
+  --gradient-warm: linear-gradient(135deg, #f7c75e, #f05a2a);
+  --gradient-mesh:
+    radial-gradient(circle at 16% 22%, rgba(76, 201, 240, 0.22), transparent 32%),
+    radial-gradient(circle at 72% 18%, rgba(124, 58, 237, 0.28), transparent 34%),
+    radial-gradient(circle at 52% 88%, rgba(89, 208, 180, 0.16), transparent 30%);
+
+  /* Glows */
+  --glow-cyan-sm: 0 0 24px rgba(76, 201, 240, 0.18);
+  --glow-cyan-md: 0 0 48px rgba(76, 201, 240, 0.28);
+  --glow-purple-md: 0 0 48px rgba(124, 58, 237, 0.28);
+
+  /* Z-index scale */
+  --z-base: 0;
+  --z-content: 10;
+  --z-overlay: 20;
+  --z-nav: 40;
+  --z-modal: 50;
+
+  /* Type scale */
+  --text-xs:  clamp(11px, 0.72rem, 12px);
+  --text-sm:  clamp(13px, 0.85rem, 14px);
+  --text-base: clamp(15px, 1rem, 16px);
+  --text-md:  clamp(17px, 1.1rem, 18px);
+  --text-lg:  clamp(20px, 1.35rem, 22px);
+  --text-xl:  clamp(24px, 1.7rem, 28px);
+  --text-2xl: clamp(30px, 2.2rem, 36px);
+  --text-3xl: clamp(38px, 2.8rem, 48px);
+  --text-4xl: clamp(46px, 4vw, 64px);
+  --text-hero: clamp(38px, 6.4vw, 80px);
+
+  /* Spacing scale (4px base) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-32: 128px;
+
+  /* Radii */
+  --radius-1: 6px;
+  --radius-2: 8px;
+  --radius-3: 12px;
+  --radius-4: 16px;
+  --radius-5: 20px;
+  --radius-6: 24px;
+  --radius-pill: 999px;
+
+  /* Motion */
+  --ease-default: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-snap: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-micro: 150ms;
+  --duration-default: 250ms;
+  --duration-entrance: 400ms;
+  --duration-cinematic: 700ms;
+  --stagger: 60ms;
+
+  /* Fonts */
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-display: 'Sora', 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Layout */
+  --container-max: 1280px;
+  --container-pad: clamp(20px, 4vw, 64px);
+}
