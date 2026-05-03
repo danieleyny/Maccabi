@@ -4,13 +4,13 @@ export const heroCopy = {
   sub: 'Grants, compliance, disclosures, and reporting — unified, configurable, and ready to evolve with your policies.',
   primaryCta: 'Request Demo',
   secondaryCta: 'Explore Platform',
-  trustLine: 'Trusted at',
+  trustLine: 'Trusted by',
 }
 
 export const trustLogos = [
-  { name: 'University of Pennsylvania', short: 'UPenn' },
-  { name: 'Cornell University', short: 'Cornell' },
-  { name: 'Florida Atlantic University', short: 'FAU' },
+  { name: 'University of Pennsylvania', short: 'UPenn', logo: 'logos/upenn.svg' },
+  { name: 'Cornell University', short: 'Cornell', logo: 'logos/cornell.svg' },
+  { name: 'Florida Atlantic University', short: 'FAU', logo: 'logos/fau.svg' },
   { name: 'North Dakota University System', short: 'NDUS' },
 ]
 

@@ -78,7 +78,16 @@ export function Hero({ navigate }: HeroProps) {
             <ul>
               {trustLogos.map((logo) => (
                 <li key={logo.short} title={logo.name}>
-                  <span>{logo.short}</span>
+                  {logo.logo ? (
+                    <img
+                      src={`${import.meta.env.BASE_URL}${logo.logo}`}
+                      alt={logo.name}
+                      className="hero__trust-logo"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <span>{logo.short}</span>
+                  )}
                 </li>
               ))}
             </ul>
