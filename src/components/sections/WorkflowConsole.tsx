@@ -378,9 +378,23 @@ function RecordOrbital({ inView, reduced }: { inView: boolean; reduced: boolean 
     return () => clearInterval(id)
   }, [reduced, inView])
 
-  const SAT_RADIUS = 38
-  const LINE_INNER = 14
-  const LINE_OUTER = SAT_RADIUS - 6
+  const CARD_HALF_W = 27
+  const CARD_HALF_H = 10
+  const CARD_GAP = 2
+  const LINE_LEN = 14
+  const CHIP_GAP = 4
+
+  const satGeom = liveRecordSatellites.map((_, i) => {
+    const angle = (i / liveRecordSatellites.length) * Math.PI * 2 - Math.PI / 2
+    const cos = Math.cos(angle)
+    const sin = Math.sin(angle)
+    const tx = Math.abs(cos) > 1e-6 ? CARD_HALF_W / Math.abs(cos) : Infinity
+    const ty = Math.abs(sin) > 1e-6 ? CARD_HALF_H / Math.abs(sin) : Infinity
+    const tStart = Math.min(tx, ty) + CARD_GAP
+    const tEnd = tStart + LINE_LEN
+    const chipR = tEnd + CHIP_GAP
+    return { cos, sin, tStart, tEnd, chipR }
+  })
 
   return (
     <div className="wfc__record">
@@ -396,37 +410,22 @@ function RecordOrbital({ inView, reduced }: { inView: boolean; reduced: boolean 
             <stop offset="100%" stopColor="#7c3aed" />
           </linearGradient>
         </defs>
-        <circle
-          cx="50"
-          cy="50"
-          r={SAT_RADIUS}
-          fill="none"
-          stroke="rgba(76,201,240,0.18)"
-          strokeWidth="0.25"
-          strokeDasharray="0.6 1.2"
-          vectorEffect="non-scaling-stroke"
-        />
-        {liveRecordSatellites.map((_, i) => {
-          const angle = (i / liveRecordSatellites.length) * Math.PI * 2 - Math.PI / 2
-          const cos = Math.cos(angle)
-          const sin = Math.sin(angle)
-          return (
-            <line
-              key={i}
-              x1={50 + cos * LINE_INNER}
-              y1={50 + sin * LINE_INNER}
-              x2={50 + cos * LINE_OUTER}
-              y2={50 + sin * LINE_OUTER}
-              stroke="url(#recordLine)"
-              strokeWidth="1.2"
-              strokeDasharray="3 4"
-              vectorEffect="non-scaling-stroke"
-              opacity={0.7}
-              className="wfc__record-edge"
-              style={{ animationDelay: `${i * 0.2}s` }}
-            />
-          )
-        })}
+        {satGeom.map((g, i) => (
+          <line
+            key={i}
+            x1={50 + g.cos * g.tStart}
+            y1={50 + g.sin * g.tStart}
+            x2={50 + g.cos * g.tEnd}
+            y2={50 + g.sin * g.tEnd}
+            stroke="url(#recordLine)"
+            strokeWidth="1.4"
+            strokeDasharray="2 3"
+            vectorEffect="non-scaling-stroke"
+            opacity={0.95}
+            className="wfc__record-edge"
+            style={{ animationDelay: `${i * 0.2}s` }}
+          />
+        ))}
       </svg>
 
       <div className="wfc__record-center">
@@ -436,9 +435,9 @@ function RecordOrbital({ inView, reduced }: { inView: boolean; reduced: boolean 
       </div>
 
       {liveRecordSatellites.map((sat, i) => {
-        const angle = (i / liveRecordSatellites.length) * Math.PI * 2 - Math.PI / 2
-        const x = 50 + Math.cos(angle) * 38
-        const y = 50 + Math.sin(angle) * 38
+        const g = satGeom[i]
+        const x = 50 + g.cos * g.chipR
+        const y = 50 + g.sin * g.chipR
         return (
           <motion.div
             key={sat}
