@@ -73,9 +73,6 @@ export function SiteHeader({ navigate, pathname }: SiteHeaderProps) {
           </nav>
 
           <div className="site-header__actions">
-            <Button variant="ghost" size="sm" className="hide-mobile" onClick={() => go('/demo')}>
-              Sign in
-            </Button>
             <Button variant="primary" size="sm" onClick={() => go('/demo')}>
               Request Demo
             </Button>

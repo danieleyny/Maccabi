@@ -63,37 +63,34 @@ export function LoadingScreen() {
                   Atoms slide in from compass directions, bonds draw, then whole svg rotates.
                 */}
                 <g className="loader__molecule">
-                  {/* Bonds — draw in after the colored atoms arrive */}
+                  {/* Hexagonal benzene-like ring — 6 vertices around center (50,50), radius 28 */}
                   <g className="loader__bonds">
-                    <line x1="24" y1="22" x2="44" y2="26" />
-                    <line x1="44" y1="26" x2="76" y2="42" />
-                    <line x1="24" y1="22" x2="30" y2="52" />
-                    <line x1="30" y1="52" x2="52" y2="58" />
-                    <line x1="52" y1="58" x2="76" y2="42" />
-                    <line x1="30" y1="52" x2="16" y2="80" />
-                    <line x1="16" y1="80" x2="46" y2="82" />
-                    <line x1="46" y1="82" x2="52" y2="58" />
+                    <line x1="50"    y1="22" x2="74.25" y2="36" />
+                    <line x1="74.25" y1="36" x2="74.25" y2="64" />
+                    <line x1="74.25" y1="64" x2="50"    y2="78" />
+                    <line x1="50"    y1="78" x2="25.75" y2="64" />
+                    <line x1="25.75" y1="64" x2="25.75" y2="36" />
+                    <line x1="25.75" y1="36" x2="50"    y2="22" />
                   </g>
 
-                  {/* Carbon atoms — fade in with the bonds */}
+                  {/* Carbon atoms at the two diagonal vertices */}
                   <g className="loader__carbons">
-                    <circle cx="44" cy="26" r="5" />
-                    <circle cx="52" cy="58" r="5.5" />
-                    <circle cx="46" cy="82" r="4.5" />
+                    <circle cx="74.25" cy="36" r="5" />
+                    <circle cx="25.75" cy="64" r="5" />
                   </g>
 
                   {/* Colored atoms — each slides in from a compass direction */}
                   <g className="loader__atom loader__atom--from-top">
-                    <circle cx="24" cy="22" r="8.5" fill="#d94a2a" />
+                    <circle cx="50" cy="22" r="8.5" fill="#d94a2a" />
                   </g>
                   <g className="loader__atom loader__atom--from-left">
-                    <circle cx="30" cy="52" r="7.5" fill="#f0c050" />
+                    <circle cx="25.75" cy="36" r="8" fill="#f0c050" />
                   </g>
                   <g className="loader__atom loader__atom--from-right">
-                    <circle cx="76" cy="42" r="9" fill="#3b6ad6" />
+                    <circle cx="74.25" cy="64" r="8.5" fill="#3b6ad6" />
                   </g>
                   <g className="loader__atom loader__atom--from-bottom">
-                    <circle cx="16" cy="80" r="9" fill="#2bbd83" />
+                    <circle cx="50" cy="78" r="8.5" fill="#2bbd83" />
                   </g>
                 </g>
               </svg>
