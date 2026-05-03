@@ -75,17 +75,21 @@
   font-weight: 700;
   letter-spacing: 0.02em;
   color: var(--text-faint);
-  opacity: 0.7;
-  transition: opacity var(--duration-default), color var(--duration-default);
+  transition: transform var(--duration-default), background var(--duration-default);
   cursor: default;
   display: inline-flex;
   align-items: center;
-  height: 28px;
+  justify-content: center;
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-pill);
+  height: 44px;
 }
 
 .hero__trust li:hover {
-  color: var(--text-primary);
-  opacity: 1;
+  background: #fff;
+  transform: translateY(-1px);
 }
 
 .hero__trust-logo {
@@ -93,7 +97,7 @@
   width: auto;
   max-width: 140px;
   object-fit: contain;
-  filter: brightness(0) invert(1);
+  display: block;
 }
 
 .hero__visual {

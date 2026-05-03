@@ -8,10 +8,10 @@ export const heroCopy = {
 }
 
 export const trustLogos = [
-  { name: 'University of Pennsylvania', short: 'UPenn', logo: 'logos/upenn.svg' },
-  { name: 'Cornell University', short: 'Cornell', logo: 'logos/cornell.svg' },
-  { name: 'Florida Atlantic University', short: 'FAU', logo: 'logos/fau.svg' },
-  { name: 'North Dakota University System', short: 'NDUS' },
+  { name: 'University of Pennsylvania', short: 'UPenn', logo: 'logos/upenn.png' },
+  { name: 'Cornell University', short: 'Cornell', logo: 'logos/cornell.png' },
+  { name: 'Florida Atlantic University', short: 'FAU', logo: 'logos/fau.png' },
+  { name: 'North Dakota University System', short: 'NDUS', logo: 'logos/ndus.png' },
 ]
 
 export const challengeCards = [
