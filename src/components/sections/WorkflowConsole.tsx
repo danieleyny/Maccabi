@@ -378,38 +378,55 @@ function RecordOrbital({ inView, reduced }: { inView: boolean; reduced: boolean 
     return () => clearInterval(id)
   }, [reduced, inView])
 
+  const SAT_RADIUS = 38
+  const LINE_INNER = 14
+  const LINE_OUTER = SAT_RADIUS - 6
+
   return (
     <div className="wfc__record">
-      <svg viewBox="0 0 600 400" className="wfc__record-svg" aria-hidden="true">
+      <svg
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+        className="wfc__record-svg"
+        aria-hidden="true"
+      >
         <defs>
           <linearGradient id="recordLine" x1="0" x2="1">
             <stop offset="0%" stopColor="#4cc9f0" />
             <stop offset="100%" stopColor="#7c3aed" />
           </linearGradient>
         </defs>
+        <circle
+          cx="50"
+          cy="50"
+          r={SAT_RADIUS}
+          fill="none"
+          stroke="rgba(76,201,240,0.18)"
+          strokeWidth="0.25"
+          strokeDasharray="0.6 1.2"
+          vectorEffect="non-scaling-stroke"
+        />
         {liveRecordSatellites.map((_, i) => {
           const angle = (i / liveRecordSatellites.length) * Math.PI * 2 - Math.PI / 2
-          const r = 150
-          const x = 300 + Math.cos(angle) * r
-          const y = 200 + Math.sin(angle) * r
+          const cos = Math.cos(angle)
+          const sin = Math.sin(angle)
           return (
             <line
               key={i}
-              x1="300"
-              y1="200"
-              x2={x}
-              y2={y}
+              x1={50 + cos * LINE_INNER}
+              y1={50 + sin * LINE_INNER}
+              x2={50 + cos * LINE_OUTER}
+              y2={50 + sin * LINE_OUTER}
               stroke="url(#recordLine)"
-              strokeWidth="1.4"
-              strokeDasharray="6 8"
-              opacity={0.55}
+              strokeWidth="1.2"
+              strokeDasharray="3 4"
+              vectorEffect="non-scaling-stroke"
+              opacity={0.7}
               className="wfc__record-edge"
               style={{ animationDelay: `${i * 0.2}s` }}
             />
           )
         })}
-        <circle cx="300" cy="200" r="56" fill="rgba(76,201,240,0.08)" stroke="rgba(76,201,240,0.4)" strokeWidth="1" />
-        <circle cx="300" cy="200" r="80" fill="none" stroke="rgba(76,201,240,0.18)" strokeWidth="1" strokeDasharray="2 4" />
       </svg>
 
       <div className="wfc__record-center">
