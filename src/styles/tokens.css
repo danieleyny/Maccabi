@@ -4,10 +4,10 @@
 
 :root {
   /* Backgrounds */
-  --bg-deep: #050b1a;
-  --bg-base: #070d1c;
-  --bg-raised: #0b1230;
-  --bg-elevated: #101827;
+  --bg-deep: #050505;
+  --bg-base: #080808;
+  --bg-raised: #111111;
+  --bg-elevated: #171717;
 
   /* Surfaces */
   --surface-1: rgba(255, 255, 255, 0.03);
@@ -17,14 +17,14 @@
   /* Borders */
   --border-subtle: rgba(255, 255, 255, 0.08);
   --border-default: rgba(255, 255, 255, 0.14);
-  --border-accent: rgba(76, 201, 240, 0.32);
+  --border-accent: rgba(16, 185, 129, 0.34);
 
   /* Brand accents */
-  --accent-cyan: #4cc9f0;
+  --accent-cyan: #10b981;
   --accent-blue: #4361ee;
   --accent-purple: #7c3aed;
-  --accent-teal: #15a68b;
-  --accent-mint: #59d0b4;
+  --accent-teal: #047857;
+  --accent-mint: #6ee7b7;
   --accent-warning: #f05a2a;
   --accent-gold: #f7c75e;
 
@@ -35,7 +35,7 @@
   --text-faint: rgba(255, 255, 255, 0.36);
 
   /* Gradients */
-  --gradient-primary: linear-gradient(135deg, #4cc9f0 0%, #4361ee 52%, #7c3aed 100%);
+  --gradient-primary: linear-gradient(135deg, #10b981 0%, #ffffff 100%);
   --gradient-warm: linear-gradient(135deg, #f7c75e, #f05a2a);
   --gradient-mesh:
     radial-gradient(circle at 16% 22%, rgba(76, 201, 240, 0.22), transparent 32%),

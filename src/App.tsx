@@ -1,13 +1,7 @@
-import { Suspense, lazy, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { SiteHeader } from './components/layout/SiteHeader'
 import { SiteFooter } from './components/layout/SiteFooter'
-import { CustomCursor } from './components/flourishes/CustomCursor'
-import { CommandPalette } from './components/flourishes/CommandPalette'
-import { LoadingScreen } from './components/flourishes/LoadingScreen'
-import { useCommandPalette } from './hooks/useCommandPalette'
 import { HomePage } from './pages/Home'
-
-const DemoPage = lazy(() => import('./pages/Demo').then((m) => ({ default: m.DemoPage })))
 
 const BASE = (import.meta.env.BASE_URL || '/').replace(/\/$/, '')
 
@@ -18,7 +12,6 @@ function stripBase(p: string) {
 
 function App() {
   const [pathname, setPathname] = useState<string>(() => stripBase(window.location.pathname))
-  const { open: paletteOpen, setOpen: setPaletteOpen } = useCommandPalette()
 
   useEffect(() => {
     const onPop = () => setPathname(stripBase(window.location.pathname))
@@ -40,22 +33,11 @@ function App() {
     }
   }
 
-  const isDemo = pathname === '/demo' || pathname.endsWith('/demo')
-
   return (
     <>
-      <LoadingScreen />
-      <CustomCursor />
       <SiteHeader navigate={navigate} pathname={pathname} />
-      {isDemo ? (
-        <Suspense fallback={<div style={{ minHeight: '60vh' }} />}>
-          <DemoPage />
-        </Suspense>
-      ) : (
-        <HomePage navigate={navigate} />
-      )}
+      <HomePage navigate={navigate} />
       <SiteFooter navigate={navigate} />
-      <CommandPalette open={paletteOpen} onClose={() => setPaletteOpen(false)} navigate={navigate} />
     </>
   )
 }

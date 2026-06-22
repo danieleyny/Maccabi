@@ -5,48 +5,46 @@ interface SiteFooterProps {
   navigate: (href: string) => void
 }
 
-export function SiteFooter({ navigate }: SiteFooterProps) {
-  const platform = ['Grants & Contracts', 'IRB', 'IACUC', 'IBC', 'COI / COC', 'Current & Pending', 'Effort Reporting', 'Dashboards']
-  const company = [
-    ['About', '#why'],
-    ['Why Novelution', '#why'],
-    ['Clients', '#clients'],
-    ['Request Demo', '/demo'],
-  ] as const
-  const resources = [
-    ['Compare', '#compare'],
-    ['Workflow Console', '#workflow'],
-    ['Lifecycle', '#platform'],
-    ['Modules', '#modules'],
-  ] as const
+const community = [
+  ['Latest posts', '#feed'],
+  ['Trending discussions', '#feed'],
+  ['Member profiles', '#join'],
+  ['Chapter meetups', '#about'],
+] as const
 
+const club = [
+  ['About us', '#about'],
+  ['Shop', '#shop'],
+  ['Join', '#join'],
+  ['Moderation plan', '#join'],
+] as const
+
+export function SiteFooter({ navigate }: SiteFooterProps) {
   return (
     <footer className="footer">
       <div className="footer__grid container">
         <div className="footer__brand">
           <BrandLogo size="sm" />
-          <p>Novel and evolving solutions for research administration.</p>
+          <p>Placeholder website for a community-first Maccabi Haifa supporter hub.</p>
           <span className="footer__status">
-            <span className="footer__status-dot" /> Platform status: operational
+            <span className="footer__status-dot" /> Fan community concept
           </span>
         </div>
 
-        <FooterCol heading="Platform" items={platform.map((p) => [p, '#modules'] as const)} navigate={navigate} />
-        <FooterCol heading="Company" items={company} navigate={navigate} />
-        <FooterCol heading="Resources" items={resources} navigate={navigate} />
+        <FooterCol heading="Community" items={community} navigate={navigate} />
+        <FooterCol heading="Club" items={club} navigate={navigate} />
 
         <div className="footer__contact">
-          <span className="footer__heading">Contact</span>
-          <a href="mailto:demo-request@novelution.com">demo-request@novelution.com</a>
-          <address>147 W. 105th Suite 2E, New York, NY 10025</address>
+          <span className="footer__heading">Launch notes</span>
+          <p>Confirm official status, language support, trademark rights, merchandise fulfillment, and a real contact email before launch.</p>
         </div>
       </div>
 
       <div className="footer__base container">
-        <small>© 2026 Novelution Corp. All rights reserved.</small>
+        <small>© 2026 Maccabi Haifa Fan Club concept. Placeholder content.</small>
         <nav className="footer__legal" aria-label="Legal">
-          <button onClick={() => navigate('/')}>Privacy</button>
-          <button onClick={() => navigate('/')}>Terms</button>
+          <button onClick={() => navigate('#join')}>Privacy</button>
+          <button onClick={() => navigate('#join')}>Terms</button>
         </nav>
       </div>
     </footer>

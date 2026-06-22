@@ -5,9 +5,9 @@ export interface NavLink {
 }
 
 export const navLinks: NavLink[] = [
-  { label: 'Platform', href: '#platform', sectionId: 'platform' },
-  { label: 'Modules', href: '#modules', sectionId: 'modules' },
-  { label: 'Why Novelution', href: '#why', sectionId: 'why' },
-  { label: 'Clients', href: '#clients', sectionId: 'clients' },
-  { label: 'Compare', href: '#compare', sectionId: 'compare' },
+  { label: 'Community', href: '#community', sectionId: 'community' },
+  { label: 'Feed', href: '#feed', sectionId: 'feed' },
+  { label: 'About', href: '#about', sectionId: 'about' },
+  { label: 'Shop', href: '#shop', sectionId: 'shop' },
+  { label: 'Join', href: '#join', sectionId: 'join' },
 ]

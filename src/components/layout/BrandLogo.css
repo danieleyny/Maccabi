@@ -1,44 +1,38 @@
 .brand-logo {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
+  color: #fff;
   font-family: var(--font-display);
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  font-size: var(--text-sm);
-  color: var(--text-primary);
+  font-weight: 900;
 }
 
 .brand-logo__mark {
-  display: inline-block;
-  /* The mark portion of the 435x90 PNG occupies roughly the leftmost 95px.
-     Scaled to 32px tall: 95 * 32/90 ≈ 33.8px wide. We use 32px to ensure no leak. */
-  width: 32px;
-  height: 32px;
-  background-size: auto 100%;
-  background-position: left center;
-  background-repeat: no-repeat;
-  flex-shrink: 0;
-  transition: transform 600ms var(--ease-default);
-}
-
-.brand-logo:hover .brand-logo__mark {
-  transform: rotate(20deg);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  color: #001a10;
+  background: linear-gradient(135deg, #10b981, #ffffff);
+  font-size: 12px;
+  letter-spacing: 0;
+  box-shadow: 0 12px 28px rgba(16, 185, 129, 0.24);
 }
 
 .brand-logo--sm .brand-logo__mark {
-  width: 26px;
-  height: 26px;
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
 }
-.brand-logo--sm { font-size: var(--text-xs); gap: 10px; }
+
+.brand-logo--sm {
+  font-size: var(--text-sm);
+}
 
 .brand-logo__word {
-  background: linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.78));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .brand-logo:hover .brand-logo__mark { transform: none; }
+  max-width: 180px;
+  letter-spacing: 0;
+  line-height: 1.05;
 }

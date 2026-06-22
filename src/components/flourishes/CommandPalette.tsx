@@ -17,12 +17,11 @@ interface Command {
 }
 
 const COMMANDS: Command[] = [
-  { id: 'demo', label: 'Request Demo', hint: 'Tailored conversation', href: '/demo' },
-  { id: 'modules', label: 'Modules', hint: 'Bento grid', href: '#modules' },
-  { id: 'platform', label: 'Platform Overview', hint: 'Lifecycle pipeline', href: '#platform' },
-  { id: 'workflow', label: 'Workflow Console', hint: 'Three modes', href: '#workflow' },
-  { id: 'why', label: 'Why Novelution', hint: 'Operating principles', href: '#why' },
-  { id: 'clients', label: 'Clients', hint: 'Testimonials', href: '#clients' },
+  { id: 'community', label: 'Community', hint: 'Hero and composer', href: '#community' },
+  { id: 'feed', label: 'Latest Posts', hint: 'Community feed', href: '#feed' },
+  { id: 'about', label: 'About', hint: 'Fan club mission', href: '#about' },
+  { id: 'shop', label: 'Shop', hint: 'Featured merch', href: '#shop' },
+  { id: 'join', label: 'Join', hint: 'Waitlist and roadmap', href: '#join' },
 ]
 
 export function CommandPalette({ open, onClose, navigate }: CommandPaletteProps) {
@@ -40,9 +39,11 @@ export function CommandPalette({ open, onClose, navigate }: CommandPaletteProps)
   useEffect(() => {
     if (!open) return
     lastFocus.current = (document.activeElement as HTMLElement) ?? null
-    requestAnimationFrame(() => inputRef.current?.focus())
-    setQuery('')
-    setActive(0)
+    requestAnimationFrame(() => {
+      inputRef.current?.focus()
+      setQuery('')
+      setActive(0)
+    })
     document.body.classList.add('scroll-locked')
 
     return () => {

@@ -4,19 +4,15 @@ import './CustomCursor.css'
 
 export function CustomCursor() {
   const reduced = useReducedMotion()
-  const [enabled, setEnabled] = useState(false)
+  const [enabled] = useState(() => {
+    if (typeof window === 'undefined') return false
+    return window.matchMedia('(hover: hover) and (pointer: fine)').matches
+  })
   const dotRef = useRef<HTMLDivElement | null>(null)
   const ringRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
-    if (reduced) return
-    const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches
-    if (!canHover) return
-    setEnabled(true)
-  }, [reduced])
-
-  useEffect(() => {
-    if (!enabled) return
+    if (reduced || !enabled) return
     const dot = dotRef.current
     const ring = ringRef.current
     if (!dot || !ring) return
@@ -55,9 +51,9 @@ export function CustomCursor() {
       window.removeEventListener('mouseover', onOver)
       cancelAnimationFrame(raf)
     }
-  }, [enabled])
+  }, [enabled, reduced])
 
-  if (!enabled) return null
+  if (reduced || !enabled) return null
 
   return (
     <>

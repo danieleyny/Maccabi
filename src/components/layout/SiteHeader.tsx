@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import clsx from 'clsx'
-import { Menu, X } from 'lucide-react'
+import { Menu, UserPlus, X } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { BrandLogo } from './BrandLogo'
 import { Button } from '../primitives/Button'
@@ -55,7 +55,7 @@ export function SiteHeader({ navigate, pathname }: SiteHeaderProps) {
               event.preventDefault()
               go('/')
             }}
-            aria-label="Novelution home"
+            aria-label="Maccabi Haifa Fan Club home"
           >
             <BrandLogo />
           </a>
@@ -73,8 +73,8 @@ export function SiteHeader({ navigate, pathname }: SiteHeaderProps) {
           </nav>
 
           <div className="site-header__actions">
-            <Button variant="primary" size="sm" onClick={() => go('/demo')}>
-              Request Demo
+            <Button variant="primary" size="sm" iconLeft={<UserPlus size={16} />} onClick={() => go('#join')}>
+              Join
             </Button>
             <button
               className="site-header__menu"
@@ -128,8 +128,8 @@ export function SiteHeader({ navigate, pathname }: SiteHeaderProps) {
                   </motion.button>
                 ))}
               </nav>
-              <Button variant="primary" size="lg" onClick={() => go('/demo')}>
-                Request Demo
+              <Button variant="primary" size="lg" iconLeft={<UserPlus size={18} />} onClick={() => go('#join')}>
+                Join the club
               </Button>
             </motion.div>
           </motion.div>
