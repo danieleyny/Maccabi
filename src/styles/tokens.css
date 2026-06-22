@@ -17,14 +17,14 @@
   /* Borders */
   --border-subtle: rgba(255, 255, 255, 0.08);
   --border-default: rgba(255, 255, 255, 0.14);
-  --border-accent: rgba(16, 185, 129, 0.34);
+  --border-accent: rgba(0, 166, 81, 0.34);
 
   /* Brand accents */
-  --accent-cyan: #10b981;
+  --accent-cyan: #00A651;
   --accent-blue: #4361ee;
   --accent-purple: #7c3aed;
   --accent-teal: #047857;
-  --accent-mint: #6ee7b7;
+  --accent-mint: #79f2b0;
   --accent-warning: #f05a2a;
   --accent-gold: #f7c75e;
 
@@ -35,7 +35,7 @@
   --text-faint: rgba(255, 255, 255, 0.36);
 
   /* Gradients */
-  --gradient-primary: linear-gradient(135deg, #10b981 0%, #ffffff 100%);
+  --gradient-primary: linear-gradient(135deg, #00A651 0%, #ffffff 100%);
   --gradient-warm: linear-gradient(135deg, #f7c75e, #f05a2a);
   --gradient-mesh:
     radial-gradient(circle at 16% 22%, rgba(76, 201, 240, 0.22), transparent 32%),

@@ -10,13 +10,15 @@ import {
   Send,
   Share2,
   ShieldCheck,
-  ShoppingBag,
   Sparkles,
   Star,
   Users,
 } from 'lucide-react'
 import type { ReactNode } from 'react'
 import heroImage from '../assets/fanclub/stadium-hero.png'
+import scarfImage from '../assets/fanclub/products/scarf.png'
+import teeImage from '../assets/fanclub/products/tee.png'
+import pinsImage from '../assets/fanclub/products/pins.png'
 import './Home.css'
 
 interface HomeProps {
@@ -57,9 +59,9 @@ const posts = [
 ]
 
 const products = [
-  { name: 'Green & White Scarf', price: '$28', label: 'Placeholder merch' },
-  { name: 'Supporter Tee', price: '$34', label: 'Placeholder merch' },
-  { name: 'Matchday Pin Set', price: '$16', label: 'Placeholder merch' },
+  { name: 'Green & White Scarf', price: '$28', label: 'Generated mockup', image: scarfImage },
+  { name: 'Supporter Tee', price: '$34', label: 'Generated mockup', image: teeImage },
+  { name: 'Matchday Pin Set', price: '$16', label: 'Generated mockup', image: pinsImage },
 ]
 
 const stats = [
@@ -208,7 +210,7 @@ export function HomePage({ navigate }: HomeProps) {
         <div className="container">
           <div className="shop-section__head">
             <div>
-              <span className="club-kicker"><ShoppingBag size={16} /> Secondary shop</span>
+              <span className="club-kicker">Secondary shop</span>
               <h2>Featured merchandise, kept compact.</h2>
             </div>
             <button className="club-btn club-btn--secondary">View cart</button>
@@ -217,7 +219,7 @@ export function HomePage({ navigate }: HomeProps) {
             {products.map((product, index) => (
               <article className="product-card" key={product.name}>
                 <div className={`product-card__art product-card__art--${index + 1}`}>
-                  <ShoppingBag size={36} />
+                  <img src={product.image} alt={`${product.name} mockup`} />
                 </div>
                 <span>{product.label}</span>
                 <h3>{product.name}</h3>
