@@ -256,16 +256,28 @@
 
 .feed-grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.76fr) minmax(280px, 0.34fr);
-  gap: 24px;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.34fr);
+  gap: 18px;
 }
 
 .section-intro {
   grid-column: 1 / -1;
   display: grid;
-  grid-template-columns: minmax(0, 0.8fr) minmax(280px, 0.5fr);
-  gap: 28px;
-  align-items: end;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.46fr);
+  gap: 18px;
+  align-items: stretch;
+  margin-bottom: 8px;
+}
+
+.section-intro__copy {
+  min-height: 280px;
+  padding: clamp(28px, 4vw, 46px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(0, 166, 81, 0.2), rgba(255, 255, 255, 0.035) 42%, rgba(0, 0, 0, 0.1)),
+    rgba(255, 255, 255, 0.055);
+  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.28);
 }
 
 .section-intro h2,
@@ -277,13 +289,59 @@
   letter-spacing: 0;
 }
 
+.section-intro h2 {
+  max-width: 760px;
+}
+
 .section-intro p {
+  max-width: 760px;
+  margin-top: 18px;
   font-size: 18px;
+}
+
+.feed-pulse {
+  display: grid;
+  gap: 12px;
+  padding: 18px;
+  border: 1px solid rgba(0, 166, 81, 0.28);
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgba(0, 166, 81, 0.14), rgba(255, 255, 255, 0.04)),
+    rgba(255, 255, 255, 0.05);
+}
+
+.feed-pulse > span {
+  color: #79f2b0;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.feed-pulse div {
+  padding: 14px;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.feed-pulse strong {
+  display: block;
+  color: #fff;
+  font-size: 34px;
+  line-height: 1;
+}
+
+.feed-pulse p {
+  margin-top: 6px;
+  color: rgba(255, 255, 255, 0.66);
+  font-size: 13px;
 }
 
 .post-feed {
   display: grid;
   gap: 14px;
+  align-content: start;
 }
 
 .feed-toolbar {
@@ -325,7 +383,7 @@
 }
 
 .post-card {
-  padding: 20px;
+  padding: 22px;
 }
 
 .post-card__meta {
@@ -357,12 +415,13 @@
 
 .post-card h3 {
   margin-top: 18px;
-  font-size: clamp(22px, 3vw, 30px);
+  font-size: clamp(26px, 3vw, 36px);
   letter-spacing: 0;
 }
 
 .post-card p {
   margin-top: 8px;
+  max-width: 760px;
 }
 
 .post-card__actions {
@@ -426,6 +485,34 @@
   color: #001a10;
   background: #00A651;
   font-size: 12px;
+  font-weight: 900;
+}
+
+.feed-cta {
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: 6px;
+  background: rgba(0, 166, 81, 0.12);
+  border: 1px solid rgba(0, 166, 81, 0.24);
+}
+
+.feed-cta p {
+  margin-top: 6px;
+  color: rgba(255, 255, 255, 0.64);
+  font-size: 14px;
+}
+
+.feed-cta button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  min-height: 40px;
+  margin-top: 14px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  color: #001a10;
+  background: #00A651;
   font-weight: 900;
 }
 

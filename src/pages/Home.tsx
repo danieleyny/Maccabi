@@ -70,6 +70,12 @@ const stats = [
   ['27', 'local chapters'],
 ]
 
+const feedMetrics = [
+  ['128', 'likes on top post'],
+  ['52', 'active comments'],
+  ['9', 'new members today'],
+]
+
 const roadmap = [
   ['Phase 1', 'Accounts, profiles, posting, comments, tags, and sharing.'],
   ['Phase 2', 'Shop, newsletter, live chat, and social integrations.'],
@@ -133,27 +139,24 @@ export function HomePage({ navigate }: HomeProps) {
       <section className="feed-section section-pad" id="feed">
         <div className="container feed-grid">
           <div className="section-intro">
-            <span className="club-kicker"><MessageSquareText size={16} /> Latest community posts</span>
-            <h2>The feed is the front door.</h2>
-            <p>
-              The shop stays secondary. The main experience pushes fans into posting, reacting, commenting,
-              sharing, and finding their chapter.
-            </p>
-          </div>
-
-          <aside className="trending-box" aria-label="Trending discussions">
-            <div className="trending-box__head">
-              <strong>Trending now</strong>
-              <span>Top 24h</span>
+            <div className="section-intro__copy">
+              <span className="club-kicker"><MessageSquareText size={16} /> Latest community posts</span>
+              <h2>The feed is the front door.</h2>
+              <p>
+                The shop stays secondary. The main experience pushes fans into posting, reacting, commenting,
+                sharing, and finding their chapter.
+              </p>
             </div>
-            {['Derby predictions', 'Best away section photos', 'Summer transfer thread'].map((topic, index) => (
-              <button key={topic}>
-                <span>{index + 1}</span>
-                {topic}
-                <ArrowRight size={16} />
-              </button>
-            ))}
-          </aside>
+            <div className="feed-pulse" aria-label="Community pulse">
+              <span>Matchday pulse</span>
+              {feedMetrics.map(([value, label]) => (
+                <div key={label}>
+                  <strong>{value}</strong>
+                  <p>{label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
 
           <div className="post-feed">
             <div className="feed-toolbar" aria-label="Feed controls">
@@ -184,6 +187,25 @@ export function HomePage({ navigate }: HomeProps) {
               </article>
             ))}
           </div>
+
+          <aside className="trending-box" aria-label="Trending discussions">
+            <div className="trending-box__head">
+              <strong>Trending now</strong>
+              <span>Top 24h</span>
+            </div>
+            {['Derby predictions', 'Best away section photos', 'Summer transfer thread'].map((topic, index) => (
+              <button key={topic}>
+                <span>{index + 1}</span>
+                {topic}
+                <ArrowRight size={16} />
+              </button>
+            ))}
+            <div className="feed-cta">
+              <strong>Have something to say?</strong>
+              <p>Start a match thread, share a photo, or organize a chapter meetup.</p>
+              <button onClick={() => navigate('#join')}>Create account</button>
+            </div>
+          </aside>
         </div>
       </section>
 
